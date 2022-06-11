@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="main-side-bar" class="side-bar">
+        <div id="side-bar-contents">
+            <h1 id="side-bar-main-label" class="side-bar-label">Main</h1>
+            <button 
+                id="side-bar-page-button" 
+                class="side-bar-button" 
+                (click)="intelligencePageSelected()" 
+                [ngClass]="{'side-bar-button-pressed' : isInIntelligencePage, 'side-bar-button-unpressed': !isInIntelligencePage}"
+            >
+                Intelligence
+            </button>
+            <button 
+                id="side-bar-page-button" 
+                class="side-bar-button" 
+                (click)="traversePageSelected()" 
+                [ngClass]="{'side-bar-button-pressed' : isInTraversePage, 'side-bar-button-unpressed': !isInTraversePage}"
+            >
+                Traverse
+            </button>
+            <button 
+                id="side-bar-page-button" 
+                class="side-bar-button" 
+                (click)="ownershipPageSelected()" 
+                [ngClass]="{'side-bar-button-pressed' : isInOwnershipPage, 'side-bar-button-unpressed': !isInOwnershipPage}"
+            >
+                Ownership
+            </button>
+            <button 
+                id="side-bar-page-button" 
+                class="side-bar-button" 
+                (click)="accountsPageSelected()" 
+                [ngClass]="{'side-bar-button-pressed' : isInAccountsPage, 'side-bar-button-unpressed': !isInAccountsPage}"
+            >
+                Accounts
+            </button>
+        </div>
+    </div>
+  </body>
+</html>
+
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="traverse.component.css" />
+    <link rel="stylesheet" type="text/css" href="traverse.component.globals.css" />
+    <link rel="stylesheet" type="text/css" href="traverse.component.styleguide.css" />
+  </head>
+  <body style="margin: 0">
+    <input type="hidden" id="anPageName" name="page" value="frame-1" />
+    <div class="container-center-horizontal">
+      <div class="frame-1 screen">
+        <div class="overlap-group-container">
+          <div class="overlap-group2">
+            <div class="flex-row">
+              <div class="katniane-container lalezar-normal-electric-violet-18px">
+                <div class="niane">KatNiane</div>
+                <div class="niane">KatNiane</div>
+              </div>
+              <div class="lms-label lalezar-normal-silver-18px">LMS</div>
+            </div>
+            <div class="overlap-group11"><div class="account-name lalezar-normal-silver-15px">Alice</div></div>
+            <div class="overlap-group9"><div class="account-balance lalezar-normal-silver-15px">1.1529 MUnit</div></div>
+          </div>
+          <div class="overlap-group3">
+            <div class="sidebar-main-label lalezar-normal-gravel-13px">Main</div>
+            <div class="sidebar-intelligence-label lalezar-normal-silver-15px">Intelligence</div>
+            <div class="overlap-group25">
+              <div class="sidebar-traverse-label lalezar-normal-silver-15px">Traverse</div>
+            </div>
+            <div class="sidebar-ownership-label lalezar-normal-silver-15px">Ownership</div>
+            <div class="sidebar-accounts-label">Accounts</div>
+            <div class="sidebar-documentations-label lalezar-normal-gravel-13px">Documentations</div>
+            <div class="sidebar lalezar-normal-gravel-13px">Help</div>
+            <div class="sidebar lalezar-normal-gravel-13px">About KatNiane</div>
+          </div>
+        </div>
+        <div class="flex-col">
+          <div class="overlap-group-container-1">
+            <div class="overlap-group-container-2">
+              <div class="overlap-group22"><div class="x-label inter-bold-chicago-12px">Log Key</div></div>
+              <div class="overlap-group23"><div class="x-label inter-bold-chicago-12px">Log Date</div></div>
+              <div class="retrieve-button-container">
+                <div class="retrieve-button"></div>
+                <div class="retrieve-button-label lalezar-normal-silver-18px">Retrieve</div>
+              </div>
+            </div>
+            <div class="overlap-group-1">
+              <div class="logs-retrieved-cell-label lalezar-normal-electric-violet-18px">Logs Retrieved</div>
+              <div class="flex-row-1">
+                <div class="logs-retrieved-sort-by-label lalezar-normal-gravel-15px">Sort By</div>
+                <div class="overlap-group15"><div class="x-label inter-bold-chicago-12px">Timestamp</div></div>
+                <div class="logs-retrieved-filter-by-label lalezar-normal-gravel-15px">Filter By</div>
+                <div class="overlap-group13"><div class="x-label inter-bold-chicago-12px">Reporter</div></div>
+                <div class="logs-retrieved-format-label lalezar-normal-gravel-15px">Format</div>
+                <div class="overlap-group14"><div class="x-label inter-bold-chicago-12px">Plaintext</div></div>
+              </div>
+              <div class="overlap-group12">
+                <div class="flex-col-1 inter-bold-midnight-moss-12px">
+                  <div class="overlap-group-container-3">
+                    <div class="overlap-group17">
+                      <div class="logs-retrieved-conte-4 lalezar-normal-gravel-15px">Search&nbsp;&nbsp;Contents</div>
+                    </div>
+                    <div class="overlap-group11-1"><div class="logs-retrieved-conte-5">Search</div></div>
+                  </div>
+                  <div class="overlap-group10">
+                    <div class="logs-retrieved-conte-6">
+                      <span class="inter-bold-midnight-moss-12px">Title:</span
+                      ><span class="inter-normal-midnight-moss-12px"> MariaDB Login Attempt</span>
+                    </div>
+                    <div class="logs-retrieved-conte-container inter-bold-midnight-moss-12px">
+                      <p class="logs-retrieved-conte">
+                        <span class="inter-bold-midnight-moss-12px">Contents:</span
+                        ><span class="inter-normal-midnight-moss-12px"
+                          >Richard has failed three times logging in. This incident has been reported to security</span
+                        >
+                      </p>
+                      <div class="logs-retrieved-conte-1">
+                        <span class="inter-bold-midnight-moss-12px">Timestamp:</span
+                        ><span class="inter-normal-midnight-moss-12px"> 2022-05-10T20:21:32.556709254-05:00</span>
+                      </div>
+                    </div>
+                    <div class="logs-retrieved-conte-2">
+                      <span class="inter-bold-midnight-moss-12px">Reporter:</span
+                      ><span class="inter-normal-midnight-moss-12px">
+                        5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</span
+                      >
+                    </div>
+                  </div>
+                  <div class="overlap-group">
+                    <div class="logs-retrieved-conte-3">
+                      <span class="inter-bold-midnight-moss-12px">Title:</span
+                      ><span class="inter-normal-midnight-moss-12px"> MariaDB Login Attempt</span>
+                    </div>
+                    <div class="logs-retrieved-conte-container inter-bold-midnight-moss-12px">
+                      <p class="logs-retrieved-conte">
+                        <span class="inter-bold-midnight-moss-12px">Contents:</span
+                        ><span class="inter-normal-midnight-moss-12px"
+                          >Richard has failed three times logging in. This incident has been reported to security</span
+                        >
+                      </p>
+                      <div class="logs-retrieved-conte-1">
+                        <span class="inter-bold-midnight-moss-12px">Timestamp:</span
+                        ><span class="inter-normal-midnight-moss-12px"> 2022-05-10T20:21:32.556709254-05:00</span>
+                      </div>
+                    </div>
+                    <div class="logs-retrieved-conte-2">
+                      <span class="inter-bold-midnight-moss-12px">Reporter:</span
+                      ><span class="inter-normal-midnight-moss-12px">
+                        5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</span
+                      >
+                    </div>
+                  </div>
+                  <div class="overlap-group inter-bold-midnight-moss-12px">
+                    <div class="logs-retrieved-conte-3">
+                      <span class="inter-bold-midnight-moss-12px">Title:</span
+                      ><span class="inter-normal-midnight-moss-12px"> MariaDB Login Attempt</span>
+                    </div>
+                    <div class="logs-retrieved-conte-container inter-bold-midnight-moss-12px">
+                      <p class="logs-retrieved-conte">
+                        <span class="inter-bold-midnight-moss-12px">Contents:</span
+                        ><span class="inter-normal-midnight-moss-12px"
+                          >Richard has failed three times logging in. This incident has been reported to security</span
+                        >
+                      </p>
+                      <div class="logs-retrieved-conte-1">
+                        <span class="inter-bold-midnight-moss-12px">Timestamp:</span
+                        ><span class="inter-normal-midnight-moss-12px"> 2022-05-10T20:21:32.556709254-05:00</span>
+                      </div>
+                    </div>
+                    <div class="logs-retrieved-conte-2">
+                      <span class="inter-bold-midnight-moss-12px">Reporter:</span
+                      ><span class="inter-normal-midnight-moss-12px">
+                        5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="overlap-group18">
+                  <div class="logs-retrieved-conte-7"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-row-2">
+            <div class="save-logs-on-label lalezar-normal-gravel-15px">Save logs on:</div>
+            <div class="overlap-group7">
+              <div class="save-logs-on-label-input-label inter-bold-chicago-12px">Save to directory</div>
+            </div>
+            <div class="overlap-group8"><div class="x-button-label lalezar-normal-silver-18px">Browse</div></div>
+            <div class="overlap-group4"><div class="x-label inter-bold-chicago-12px">JSON</div></div>
+            <div class="overlap-group5"><div class="x-button-label lalezar-normal-silver-18px">Format</div></div>
+            <div class="overlap-group6">
+              <div class="format-save-button-label lalezar-normal-silver-18px">Save</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> -->

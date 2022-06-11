@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Lalezar:400|Inter:400,700");
+
+body {
+    background-color: #23272B;
+}
+
+.side-bar {
+    position: fixed;
+    text-align: left;
+    float: left;
+    background-color: #000000;
+    border-radius: 25px;
+    height: 95%;
+    width: 15%;
+}
+
+.side-bar-label {
+    margin-left: 15%;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#side-bar-main-label {
+    margin-top: 25%;
+    margin-bottom: 2%;
+    color: #484848;
+    font-size: 15px;
+}
+
+.side-bar-button {
+    display: block;
+    background: #000000;
+    color: #BEBEBE;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    width: 100%;
+    padding: 20px;
+    border-style: none;
+    text-align: left;
+    padding-left: 15%; /*padding of text inside the button*/
+    font-weight: 800;
+}
+
+.side-bar-button:hover {
+    background-color:#8E22E3;
+    transition: 0.7s;
+}
+
+.side-bar-button-pressed {
+    background: #8E22E3;
+}
+
+.side-bar-button-unpressed {
+    background: #000000;
+}
