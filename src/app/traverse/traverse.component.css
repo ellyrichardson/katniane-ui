@@ -7,13 +7,10 @@ body {
 }
 
 .side-bar {
-    position: fixed;
     text-align: left;
-    float: left;
     background-color: #000000;
     border-radius: 25px;
-    height: 95%;
-    width: 15%;
+    flex-basis: 10%;
 }
 
 .side-bar-label {
@@ -58,6 +55,9 @@ body {
 .traverse-container {
     display: flex;
     flex-direction: row;
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
 .traverse-container div {
@@ -65,7 +65,6 @@ body {
 }
 
 #log-retrieval-cell {
-    position: fixed;
     left: 16%;
     border-radius: 25px;
     margin-right: 16%;
