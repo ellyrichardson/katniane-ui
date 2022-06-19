@@ -3,42 +3,58 @@
   <head>
   </head>
   <body>
-    <div id="main-side-bar" class="side-bar">
+    <div class="traverse-container">
+      <div id="main-side-bar" class="side-bar">
         <div id="side-bar-contents">
-            <h1 id="side-bar-main-label" class="side-bar-label">Main</h1>
-            <button 
-                id="side-bar-page-button" 
-                class="side-bar-button" 
-                (click)="intelligencePageSelected()" 
-                [ngClass]="{'side-bar-button-pressed' : isInIntelligencePage, 'side-bar-button-unpressed': !isInIntelligencePage}"
-            >
-                Intelligence
-            </button>
-            <button 
-                id="side-bar-page-button" 
-                class="side-bar-button" 
-                (click)="traversePageSelected()" 
-                [ngClass]="{'side-bar-button-pressed' : isInTraversePage, 'side-bar-button-unpressed': !isInTraversePage}"
-            >
-                Traverse
-            </button>
-            <button 
-                id="side-bar-page-button" 
-                class="side-bar-button" 
-                (click)="ownershipPageSelected()" 
-                [ngClass]="{'side-bar-button-pressed' : isInOwnershipPage, 'side-bar-button-unpressed': !isInOwnershipPage}"
-            >
-                Ownership
-            </button>
-            <button 
-                id="side-bar-page-button" 
-                class="side-bar-button" 
-                (click)="accountsPageSelected()" 
-                [ngClass]="{'side-bar-button-pressed' : isInAccountsPage, 'side-bar-button-unpressed': !isInAccountsPage}"
-            >
-                Accounts
-            </button>
+          <h1 id="side-bar-main-label" class="side-bar-label">Main</h1>
+          <button 
+              id="side-bar-page-button" 
+              class="side-bar-button" 
+              (click)="intelligencePageSelected()" 
+              [ngClass]="{'side-bar-button-pressed' : isInIntelligencePage, 'side-bar-button-unpressed': !isInIntelligencePage}"
+          >
+              Intelligence
+          </button>
+          <button 
+              id="side-bar-page-button" 
+              class="side-bar-button" 
+              (click)="traversePageSelected()" 
+              [ngClass]="{'side-bar-button-pressed' : isInTraversePage, 'side-bar-button-unpressed': !isInTraversePage}"
+          >
+              Traverse
+          </button>
+          <button 
+              id="side-bar-page-button" 
+              class="side-bar-button" 
+              (click)="ownershipPageSelected()" 
+              [ngClass]="{'side-bar-button-pressed' : isInOwnershipPage, 'side-bar-button-unpressed': !isInOwnershipPage}"
+          >
+              Ownership
+          </button>
+          <button 
+              id="side-bar-page-button" 
+              class="side-bar-button" 
+              (click)="accountsPageSelected()" 
+              [ngClass]="{'side-bar-button-pressed' : isInAccountsPage, 'side-bar-button-unpressed': !isInAccountsPage}"
+          >
+              Accounts
+          </button>
         </div>
+      </div>
+      <div class="log-retrieval-traverse-container">
+        <div id="log-retrieval-cell">
+          <form>
+              <span>
+                  <input type="text" id="log-date-input" class="log-retrieval-input" name="log-date" placeholder="Log Date (format: YYYY-MM-DD)">
+                  <input type="text" id="log-key-input" class="log-retrieval-input" name="log-key" placeholder="Log Key">
+                  <input type="submit" id="log-retrieval-button" class="log-retrieval-button" value="Retrieve">
+              </span>
+          </form> 
+        </div>
+        <div id="retrieved-logs-cell">
+          <h1>TEST</h1>
+        </div>
+      </div>
     </div>
   </body>
 </html>
