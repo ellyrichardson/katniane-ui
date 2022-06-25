@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { sortTypes } from './traverse-organizations/traverse-filter';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-traverse',
@@ -47,4 +49,22 @@ export class TraverseComponent implements OnInit {
     this.isInAccountsPage = true;
   }
 
+  // Dropdown code
+  sortOptionList: any = ['Timestamp', 'Title', 'Reporter']
+
+  // Dropdown code
+  filterOptionList: any = ['Title', 'Reporter']
+
+  // Dropdown code
+  formatOptionList: any = ['Plaintext', 'JSON']
+  
+  form = new FormGroup({
+    sortControl: new FormControl('', Validators.required),
+    filterControl: new FormControl('', Validators.required),
+    formatControl: new FormControl('', Validators.required)
+  });
+  
+  get f(){
+    return this.form.controls;
+  }
 }

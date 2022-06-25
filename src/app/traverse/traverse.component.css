@@ -1,3 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
 html {
     height: 100%;
 }
@@ -7,20 +9,20 @@ body {
 }
 
 .side-bar {
+    position: relative;
     text-align: left;
     background-color: #000000;
     border-radius: 25px;
-    flex-basis: 10%;
+    padding-bottom: 34%;
 }
 
 .side-bar-label {
-    margin-left: 15%;
+    margin-left: 65px;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
 #side-bar-main-label {
-    margin-top: 25%;
-    margin-bottom: 2%;
+    margin-top: 75px;
     color: #484848;
     font-size: 15px;
 }
@@ -35,7 +37,8 @@ body {
     padding: 20px;
     border-style: none;
     text-align: left;
-    padding-left: 15%; /*padding of text inside the button*/
+    padding-left: 65px; /*padding of text inside the button*/
+    margin-right: 65px;
     font-weight: 800; /*to make the font bold*/
 }
 
@@ -57,11 +60,6 @@ body {
     flex-direction: row;
     height: 100%;
     width: 100%;
-    position: relative;
-}
-
-.traverse-container div {
-    flex: 1;
 }
 
 #log-retrieval-cell {
@@ -71,7 +69,7 @@ body {
     margin-left: 18px;
     background-color: #000000;
     height: 78px;
-    width: 80%;
+    width: 93%;
 }
 
 .log-retrieval-input {
@@ -104,11 +102,64 @@ body {
 }
 
 #retrieved-logs-cell {
+    display: block;
     height: 100%;
-    background-color: #8E22E3;
+    background-color: #000000;
+    margin-top: 18px;
+    margin-left: 18px;
+    border-radius: 25px;
+}
+
+#retrieved-logs-cell h1 {
+    color: #8E22E3;
+    font-size: 25px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin-left: 25px;
+    font-weight: 900; /*to make the font bold*/
 }
 
 .log-retrieval-traverse-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.filters-cell-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.filters-cell-container button {
+    height: 40px;
+    margin: 40px;
+    color: #BEBEBE;
+    background-color: #8E22E3;
+    border-style: none;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 800;
+}
+
+.filter-form-group-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 40px;
+}
+
+.filter-form-group-container label {
+    color: #BEBEBE;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 800;
+}
+
+.filter-form-group-container select {
+    color: #BEBEBE;
+    background-color: #3D3D3D;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    border-style: none;
+    margin-right: 50px;
 }
