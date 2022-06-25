@@ -249,3 +249,42 @@ body {
     width: 100%;
 }
 
+.save-logs-options-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+.save-logs-options-container label {
+    color: #151515;
+}
+
+.save-logs-options-container button {
+    height: 40px;
+    margin: 20px;
+    color: #BEBEBE;
+    background-color: #8E22E3;
+    border-style: none;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 800;
+}
+
+.save-retrieved-logs-button {
+    display: block;
+    background: #5362EA;
+    color: #151515;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    width: 8%;
+    padding: 14px;
+    border-style: none;
+    text-align: center;
+    font-weight: 900;
+    border-radius: 8px;
+    margin: 14px 40px;
+    float: right;
+}

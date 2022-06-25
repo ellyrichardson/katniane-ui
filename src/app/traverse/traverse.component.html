@@ -100,6 +100,7 @@
                   <input type="text" id="traversal-search-input" class="traverse-cell-search-input" name="log-date" placeholder="Search Contents">
                   <input type="submit" id="traversal-search-button" class="traverse-cell-search-button" value="Search">
               </span>
+              <button class="save-retrieved-logs-button" type="submit">SAVE</button>
             </form> 
             <div id="retrieved-logs-list" class="retrieved-logs-list">
               <table>
@@ -210,6 +211,30 @@
             
           </div>
         </div>
+        <!--
+        <div class="save-logs-options-container">
+          <form [formGroup]="form">   
+            <div class="filter-form-group-container">
+                <label for="save-directory">Save on:</label>
+                <select formControlName="sortControl" class="form-control">
+                    <option disabled>Select Sort Type</option>
+                    <option>Browse Directory</option>
+                    <option *ngFor="let sortOption of sortOptionList">{{sortOption}}</option>
+                </select>
+            </div>
+          </form>
+          <form [formGroup]="form"> 
+            <div class="filter-form-group-container">
+              <label for="save-format">Save with format:</label>
+              <select formControlName="sortControl" class="form-control">
+                  <option disabled>Select Sort Type</option>
+                  <option>Select Format</option>
+                  <option *ngFor="let sortOption of sortOptionList">{{sortOption}}</option>
+              </select>
+            </div>
+          </form>
+          <button class="btn btn-primary" type="submit">SAVE</button>
+        </div>-->
       </div>
     </div>
   </body>
