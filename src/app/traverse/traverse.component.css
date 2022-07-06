@@ -102,6 +102,22 @@ body {
     float: left;
 }
 
+.log-retrieval-button:disabled {
+    display: block;
+    background: #BEBEBE;
+    color: #484848;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    width: 8%;
+    padding: 14px;
+    border-style: none;
+    text-align: center;
+    font-weight: 900;
+    border-radius: 8px;
+    margin: 14px 20px;
+    float: left;
+}
+
 #retrieved-logs-cell {
     display: block;
     height: 100%;

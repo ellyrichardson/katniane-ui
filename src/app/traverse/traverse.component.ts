@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { sortTypes } from './traverse-organizations/traverse-filter';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LogRetrievalService } from './log_retrieval_service/log-retrieval.service';
 
 @Component({
   selector: 'app-traverse',
   templateUrl: './traverse.component.html',
+  providers: [ LogRetrievalService ],
   styleUrls: ['./traverse.component.css']
 })
 export class TraverseComponent implements OnInit {
@@ -14,7 +15,7 @@ export class TraverseComponent implements OnInit {
   isInOwnershipPage = false;
   isInAccountsPage = false;
 
-  constructor() { }
+  constructor(private logRetrievalService: LogRetrievalService) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +50,10 @@ export class TraverseComponent implements OnInit {
     this.isInAccountsPage = true;
   }
 
+  /*
+  For Organization Options - maybe put this in its own component?
+  */
+
   // Dropdown code
   sortOptionList: any = ['Timestamp', 'Title', 'Reporter']
 
@@ -63,8 +68,28 @@ export class TraverseComponent implements OnInit {
     filterControl: new FormControl('', Validators.required),
     formatControl: new FormControl('', Validators.required)
   });
-  
-  get f(){
-    return this.form.controls;
+
+  /*
+  For Retrieving Logs - maybe put this in its own component?
+  */
+
+  logDateInputValue: string = '';
+  logKeyInputValue: string = '';
+
+  logDateInputChanged(newLogDateVal: string): void {
+    this.logDateInputValue = newLogDateVal;
+  }
+
+  logKeyInputChanged(newLogKeyVal: string): void {
+    this.logKeyInputValue = newLogKeyVal;
+  }
+
+  public retrieveLogs() {
+    this.logRetrievalService.retrieveLogs(this.logKeyInputValue, this.logDateInputValue)
+      .subscribe(
+        (response) => {
+          console.log('response received');
+        }
+      )
   }
 }

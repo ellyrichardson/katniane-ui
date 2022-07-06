@@ -43,11 +43,35 @@
       </div>
       <div class="log-retrieval-traverse-container">
         <div id="log-retrieval-cell">
-          <form>
+          <form #retrieveLogsForm="ngForm">
               <span>
-                  <input type="text" id="log-date-input" class="log-retrieval-input" name="log-date" placeholder="Log Date (format: YYYY-MM-DD)">
-                  <input type="text" id="log-key-input" class="log-retrieval-input" name="log-key" placeholder="Log Key">
-                  <input type="submit" id="log-retrieval-button" class="log-retrieval-button" value="Retrieve">
+                  <!--<input type="text" id="log-date-input" class="log-retrieval-input" name="log-date" placeholder="Log Date (format: YYYY-MM-DD)">-->
+
+                  <input type="text"
+                    [ngModel]="logDateInputValue"
+                    (ngModelChange)="logDateInputChanged($event)"
+                    id="log-date-input" 
+                    class="log-retrieval-input" 
+                    name="log-date"
+                    placeholder="Log Date (format: YYYY-MM-DD)"
+                    required>
+
+                  <!--<input type="text" id="log-key-input" class="log-retrieval-input" name="log-key" placeholder="Log Key">-->
+
+                  <input type="text"
+                    [ngModel]="logKeyInputValue"
+                    (ngModelChange)="logKeyInputChanged($event)"
+                    id="log-key-input" 
+                    class="log-retrieval-input" 
+                    name="log-key"
+                    placeholder="Log Key"
+                    required>
+
+                  <input type="submit" 
+                    id="log-retrieval-button" 
+                    class="log-retrieval-button" 
+                    [disabled]="!retrieveLogsForm.form.valid" 
+                    value="Retrieve">
               </span>
           </form> 
         </div>
