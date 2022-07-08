@@ -71,6 +71,7 @@
                     id="log-retrieval-button" 
                     class="log-retrieval-button" 
                     [disabled]="!retrieveLogsForm.form.valid" 
+                    (click)="retrieveLogs()"
                     value="Retrieve">
               </span>
           </form> 
@@ -129,106 +130,29 @@
             <div id="retrieved-logs-list" class="retrieved-logs-list">
               <table>
                 <tbody>
-                  <tr>
-                    <div class="retrieved-logs-entry-cell-data-container">
-                      <div id="retrieved-logs-entry-title" class="retrieved-logs-entry-data-container">
-                        <h1>Title:</h1>
-                        <h2>database_logging</h2>
+                  <li *ngFor="let retrievedLog of retrievedLogs.contents">
+                    <tr>
+                      <div class="retrieved-logs-entry-cell-data-container">
+                        <div id="retrieved-logs-entry-title" class="retrieved-logs-entry-data-container">
+                          <h1>Title:</h1>
+                          <h2>{{retrievedLog.title}}</h2>
+                        </div>
+                        <div id="retrieved-logs-entry-contents" class="retrieved-logs-entry-data-container">
+                          <h1>Contents:</h1>
+                          <h2>{{retrievedLog.content}}</h2>
+                        </div>
+                        <div id="retrieved-logs-entry-timestamp" class="retrieved-logs-entry-data-container">
+                          <h1>Timestamp:</h1>
+                          <h2>{{retrievedLog.timestamp}}</h2>
+                        </div>
+                        <div id="retrieved-logs-entry-reporter" class="retrieved-logs-entry-data-container">
+                          <h1>Reporter:</h1>
+                          <h2>{{retrievedLog.reporter}}</h2>
+                        </div>
                       </div>
-                      <div id="retrieved-logs-entry-contents" class="retrieved-logs-entry-data-container">
-                        <h1>Contents:</h1>
-                        <h2>Richard has failed three times logging in. This incident has been reported to security</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-timestamp" class="retrieved-logs-entry-data-container">
-                        <h1>Timestamp:</h1>
-                        <h2>2022-05-10T20:21:32.556709254-05:00</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-reporter" class="retrieved-logs-entry-data-container">
-                        <h1>Reporter:</h1>
-                        <h2>5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</h2>
-                      </div>
-                    </div>
-                  </tr>
-                  <tr>
-                    <div class="retrieved-logs-entry-cell-data-container">
-                      <div id="retrieved-logs-entry-title" class="retrieved-logs-entry-data-container">
-                        <h1>Title:</h1>
-                        <h2>database_logging</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-contents" class="retrieved-logs-entry-data-container">
-                        <h1>Contents:</h1>
-                        <h2>Richard has failed three times logging in. This incident has been reported to security. Richard has failed three times logging in. This incident has been reported to security. Richard has failed three times logging in. This incident has been reported to security. Richard has failed three times logging in. This incident has been reported to security. Richard has failed three times logging in. This incident has been reported to security</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-timestamp" class="retrieved-logs-entry-data-container">
-                        <h1>Timestamp:</h1>
-                        <h2>2022-05-10T20:21:32.556709254-05:00</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-reporter" class="retrieved-logs-entry-data-container">
-                        <h1>Reporter:</h1>
-                        <h2>5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</h2>
-                      </div>
-                    </div>
-                  </tr>
-                  <tr>
-                    <div class="retrieved-logs-entry-cell-data-container">
-                      <div id="retrieved-logs-entry-title" class="retrieved-logs-entry-data-container">
-                        <h1>Title:</h1>
-                        <h2>database_logging</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-contents" class="retrieved-logs-entry-data-container">
-                        <h1>Contents:</h1>
-                        <h2>Richard has failed three times logging in. This incident has been reported to security. Richard has failed three times logging in. This incident has been reported to security. Richard has failed three times logging in. This incident has been reported to security</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-timestamp" class="retrieved-logs-entry-data-container">
-                        <h1>Timestamp:</h1>
-                        <h2>2022-05-10T20:21:32.556709254-05:00</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-reporter" class="retrieved-logs-entry-data-container">
-                        <h1>Reporter:</h1>
-                        <h2>5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</h2>
-                      </div>
-                    </div>
-                  </tr>
-                  <tr>
-                    <div class="retrieved-logs-entry-cell-data-container">
-                      <div id="retrieved-logs-entry-title" class="retrieved-logs-entry-data-container">
-                        <h1>Title:</h1>
-                        <h2>database_logging</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-contents" class="retrieved-logs-entry-data-container">
-                        <h1>Contents:</h1>
-                        <h2>Richard has failed three times logging in. This incident has been reported to security</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-timestamp" class="retrieved-logs-entry-data-container">
-                        <h1>Timestamp:</h1>
-                        <h2>2022-05-10T20:21:32.556709254-05:00</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-reporter" class="retrieved-logs-entry-data-container">
-                        <h1>Reporter:</h1>
-                        <h2>5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</h2>
-                      </div>
-                    </div>
-                  </tr>
-                  <tr>
-                    <div class="retrieved-logs-entry-cell-data-container">
-                      <div id="retrieved-logs-entry-title" class="retrieved-logs-entry-data-container">
-                        <h1>Title:</h1>
-                        <h2>database_logging</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-contents" class="retrieved-logs-entry-data-container">
-                        <h1>Contents:</h1>
-                        <h2>Richard has failed three times logging in. This incident has been reported to security. Richard has failed three times logging in. This incident has been reported to security</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-timestamp" class="retrieved-logs-entry-data-container">
-                        <h1>Timestamp:</h1>
-                        <h2>2022-05-10T20:21:32.556709254-05:00</h2>
-                      </div>
-                      <div id="retrieved-logs-entry-reporter" class="retrieved-logs-entry-data-container">
-                        <h1>Reporter:</h1>
-                        <h2>5Ek6kTazAk16wP6FrgQzw1WESf6rHd5tLhAGC56m1jVc22mT</h2>
-                      </div>
-                    </div>
-                  </tr>
+                    </tr>
+                  </li>
+                  
                 </tbody>
               </table>
             </div>

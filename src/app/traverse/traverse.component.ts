@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LogRetrievalService } from './log_retrieval_service/log-retrieval.service';
+import { RetrievedLogDetails } from './log_retrieval_service/auditLog';
 
 @Component({
   selector: 'app-traverse',
@@ -84,11 +85,20 @@ export class TraverseComponent implements OnInit {
     this.logKeyInputValue = newLogKeyVal;
   }
 
+  retrievedLogs: RetrievedLogDetails =  {} as RetrievedLogDetails;
+
   public retrieveLogs() {
+    console.log('retrieving logs');
     this.logRetrievalService.retrieveLogs(this.logKeyInputValue, this.logDateInputValue)
       .subscribe(
         (response) => {
           console.log('response received');
+          console.log(response);
+          this.retrievedLogs = response;
+          console.log('response outputted');
+        },
+        (error) => {
+          console.error('Request failed with error');
         }
       )
   }

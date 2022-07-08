@@ -238,6 +238,7 @@ body {
 .retrieved-logs-entry-data-container {
     display: flex;
     flex-direction: row;
+    flex-basis: 100%;
     width: 100%;
 }
 
