@@ -5,7 +5,7 @@
   <body>
     <div class="traverse-container">
       <div id="main-side-bar" class="side-bar">
-        <div id="side-bar-contents">
+        
           <h1 id="side-bar-main-label" class="side-bar-label">Main</h1>
           <button 
               id="side-bar-page-button" 
@@ -39,21 +39,150 @@
           >
               Accounts
           </button>
-        </div>
+        
       </div>
       <div class="log-retrieval-traverse-container">
         <div id="log-retrieval-cell">
-          <form>
+          <form #retrieveLogsForm="ngForm">
               <span>
-                  <input type="text" id="log-date-input" class="log-retrieval-input" name="log-date" placeholder="Log Date (format: YYYY-MM-DD)">
-                  <input type="text" id="log-key-input" class="log-retrieval-input" name="log-key" placeholder="Log Key">
-                  <input type="submit" id="log-retrieval-button" class="log-retrieval-button" value="Retrieve">
+                  <!--<input type="text" id="log-date-input" class="log-retrieval-input" name="log-date" placeholder="Log Date (format: YYYY-MM-DD)">-->
+
+                  <input type="text"
+                    [ngModel]="logDateInputValue"
+                    (ngModelChange)="logDateInputChanged($event)"
+                    id="log-date-input" 
+                    class="log-retrieval-input" 
+                    name="log-date"
+                    placeholder="Log Date (format: YYYY-MM-DD)"
+                    required>
+
+                  <!--<input type="text" id="log-key-input" class="log-retrieval-input" name="log-key" placeholder="Log Key">-->
+
+                  <input type="text"
+                    [ngModel]="logKeyInputValue"
+                    (ngModelChange)="logKeyInputChanged($event)"
+                    id="log-key-input" 
+                    class="log-retrieval-input" 
+                    name="log-key"
+                    placeholder="Log Key"
+                    required>
+
+                  <input type="submit" 
+                    id="log-retrieval-button" 
+                    class="log-retrieval-button" 
+                    [disabled]="!retrieveLogsForm.form.valid" 
+                    (click)="retrieveLogs()"
+                    value="Retrieve">
               </span>
           </form> 
         </div>
         <div id="retrieved-logs-cell">
-          <h1>TEST</h1>
+          <div id="filters-cell" class="filters-cell-container" >
+            <div class="sort-options-container">  
+              <form [formGroup]="form">   
+                  <div class="filter-form-group-container">
+                      <label for="sortBy">Sort By:</label>
+                      <select formControlName="sortControl" class="form-control">
+                          <option disabled>Select Sort Type</option>
+                          <option *ngFor="let sortOption of sortOptionList">{{sortOption}}</option>
+                      </select>
+                      <!---
+                      <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
+                          <div *ngIf="f.website.errors.required">Name is required.</div>
+                      </div>-->
+                  </div>
+                 
+                  <!--<button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button> -->
+              </form>
+            </div>
+            <div class="filter-options-container">
+              <form [formGroup]="form">  
+                  <div class="filter-form-group-container">
+                      <label for="filterBy">Filter By:</label>
+                      <select formControlName="filterControl" class="form-control">
+                          <option disabled>Select Filter Type</option>
+                          <option *ngFor="let filterOption of filterOptionList">{{filterOption}}</option>
+                      </select>
+                  </div>
+              </form>
+            </div>
+            <div class="format-options-container">
+              <form [formGroup]="form">  
+                  <div class="filter-form-group-container">
+                      <label for="formatBy">Format By:</label>
+                      <select formControlName="formatControl" class="form-control">
+                          <option disabled>Select Format Type</option>
+                          <option *ngFor="let formatOption of formatOptionList">{{formatOption}}</option>
+                      </select>
+                  </div>
+              </form>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+          <div id="traverse-cell" class="traverse-cell-container">
+            <form>
+              <span>
+                  <input type="text" id="traversal-search-input" class="traverse-cell-search-input" name="log-date" placeholder="Search Contents">
+                  <input type="submit" id="traversal-search-button" class="traverse-cell-search-button" value="Search">
+              </span>
+              <button class="save-retrieved-logs-button" type="submit">SAVE</button>
+            </form> 
+            <div id="retrieved-logs-list" class="retrieved-logs-list">
+              <table>
+                <tbody>
+                  <li *ngFor="let retrievedLog of retrievedLogs.contents">
+                    <tr>
+                      <div class="retrieved-logs-entry-cell-data-container">
+                        <div id="retrieved-logs-entry-title" class="retrieved-logs-entry-data-container">
+                          <h1>Title:</h1>
+                          <h2>{{retrievedLog.title}}</h2>
+                        </div>
+                        <div id="retrieved-logs-entry-contents" class="retrieved-logs-entry-data-container">
+                          <h1>Contents:</h1>
+                          <h2>{{retrievedLog.content}}</h2>
+                        </div>
+                        <div id="retrieved-logs-entry-timestamp" class="retrieved-logs-entry-data-container">
+                          <h1>Timestamp:</h1>
+                          <h2>{{retrievedLog.timestamp}}</h2>
+                        </div>
+                        <div id="retrieved-logs-entry-reporter" class="retrieved-logs-entry-data-container">
+                          <h1>Reporter:</h1>
+                          <h2>{{retrievedLog.reporter}}</h2>
+                        </div>
+                      </div>
+                    </tr>
+                  </li>
+                  
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
         </div>
+        <!--
+        <div class="save-logs-options-container">
+          <form [formGroup]="form">   
+            <div class="filter-form-group-container">
+                <label for="save-directory">Save on:</label>
+                <select formControlName="sortControl" class="form-control">
+                    <option disabled>Select Sort Type</option>
+                    <option>Browse Directory</option>
+                    <option *ngFor="let sortOption of sortOptionList">{{sortOption}}</option>
+                </select>
+            </div>
+          </form>
+          <form [formGroup]="form"> 
+            <div class="filter-form-group-container">
+              <label for="save-format">Save with format:</label>
+              <select formControlName="sortControl" class="form-control">
+                  <option disabled>Select Sort Type</option>
+                  <option>Select Format</option>
+                  <option *ngFor="let sortOption of sortOptionList">{{sortOption}}</option>
+              </select>
+            </div>
+          </form>
+          <button class="btn btn-primary" type="submit">SAVE</button>
+        </div>-->
       </div>
     </div>
   </body>
