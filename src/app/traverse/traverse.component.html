@@ -81,10 +81,14 @@
             <div class="sort-options-container">  
               <form [formGroup]="form">   
                   <div class="filter-form-group-container">
-                      <label for="sortBy">Sort By:</label>
-                      <select formControlName="sortControl" class="form-control">
+                      <label id="sort-by-label" for="sortBy">Sort By:</label>
+                      <select formControlName="sortControl" class="split-dropdown-left-part">
                           <option disabled>Select Sort Type</option>
                           <option *ngFor="let sortOption of sortOptionList">{{sortOption}}</option>
+                      </select>
+                      <select formControlName="sortControl" class="split-dropdown-right-part">
+                        <option disabled>Select Sort Order</option>
+                        <option *ngFor="let sortOrder of sortOrders">{{sortOrder}}</option>
                       </select>
                       <!---
                       <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
@@ -98,19 +102,24 @@
             <div class="filter-options-container">
               <form [formGroup]="form">  
                   <div class="filter-form-group-container">
-                      <label for="filterBy">Filter By:</label>
-                      <select formControlName="filterControl" class="form-control">
+                      <label id="filter-by-label" for="filterBy">Filter By:</label>
+                      <select formControlName="filterControl" class="split-filter-dropdown-left-part">
                           <option disabled>Select Filter Type</option>
                           <option *ngFor="let filterOption of filterOptionList">{{filterOption}}</option>
                       </select>
+                      <input type="text"
+                        id="filter-by-value" 
+                        class="split-filter-dropdown-right-part" 
+                        name="filter-value"
+                        placeholder="Filter Value">
                   </div>
               </form>
             </div>
             <div class="format-options-container">
               <form [formGroup]="form">  
                   <div class="filter-form-group-container">
-                      <label for="formatBy">Format By:</label>
-                      <select formControlName="formatControl" class="form-control">
+                      <label id="format-by-label" for="formatBy">Format By:</label>
+                      <select formControlName="formatControl" class="format-dropdown">
                           <option disabled>Select Format Type</option>
                           <option *ngFor="let formatOption of formatOptionList">{{formatOption}}</option>
                       </select>

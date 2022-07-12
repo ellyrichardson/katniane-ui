@@ -57,6 +57,7 @@ export class TraverseComponent implements OnInit {
 
   // Dropdown code
   sortOptionList: any = ['Timestamp', 'Title', 'Reporter']
+  sortOrders: any =['ASCENDING', 'DESCENDING']
 
   // Dropdown code
   filterOptionList: any = ['Title', 'Reporter']

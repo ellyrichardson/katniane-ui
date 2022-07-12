@@ -176,12 +176,95 @@ body {
 }
 
 .filter-form-group-container select {
-    color: #BEBEBE;
-    background-color: #3D3D3D;
     font-size: 18px;
     font-family: "Lucida Console", "Courier New", monospace;
     border-style: none;
     margin-right: 50px;
+}
+
+#sort-by-label {
+    width: 40px;
+}
+
+#filter-by-label {
+    width: 65px;
+}
+
+#format-by-label {
+    width: 65px;
+}
+
+.split-dropdown-left-part {
+    /* remove drop-down arrow for Firefox */
+    -moz-appearance: none;
+    /* remove drop-down arrow  for Chrome */
+    -webkit-appearance: none;
+    color: #BEBEBE;
+    background-color: #3D3D3D;
+    border-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    width: 130px;
+    border-radius: 5px 0 0 5px !important;
+}
+
+.split-dropdown-right-part {
+    /* remove drop-down arrow for Firefox */
+    -moz-appearance: none;
+    /* remove drop-down arrow  for Chrome */
+    -webkit-appearance: none;
+    color: #3D3D3D;
+    background-color: #BEBEBE;
+    font-weight: 700;
+    border-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin:0 -48px;
+    width: 130px;
+    border-radius: 0 5px 5px 0 !important;
+}
+
+.split-filter-dropdown-left-part {
+    /* remove drop-down arrow for Firefox */
+    -moz-appearance: none;
+    /* remove drop-down arrow  for Chrome */
+    -webkit-appearance: none;
+    color: #BEBEBE;
+    background-color: #3D3D3D;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    width: 95px;
+    border-radius: 5px 0 0 5px !important;
+}
+
+.split-filter-dropdown-right-part {
+    color: #3D3D3D;
+    background-color: #BEBEBE;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    border-style: none;
+    margin-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin:0 -48px;
+    width: 160px;
+    border-radius: 0 5px 5px 0 !important;
+}
+
+.format-dropdown {
+    /* remove drop-down arrow for Firefox */
+    -moz-appearance: none;
+    /* remove drop-down arrow  for Chrome */
+    -webkit-appearance: none;
+    color: #BEBEBE;
+    background-color: #3D3D3D;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    width: 130px;
+    border-radius: 5px !important;
 }
 
 .traverse-cell-container {
@@ -238,7 +321,6 @@ body {
 .retrieved-logs-entry-data-container {
     display: flex;
     flex-direction: row;
-    flex-basis: 100%;
     width: 100%;
 }
 
